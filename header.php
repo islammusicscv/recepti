@@ -59,6 +59,7 @@ include_once "session.php";
                 ?>
                     <li><a href="index.php">Domov<br></a></li>
                     <li><a href="cities.php">Kraji</a></li>
+                    <li><a href="categories.php">Kategorije</a></li>
                     <li><a href="logout.php">Odjava</a></li>
                 <?php
                 }

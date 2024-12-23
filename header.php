@@ -1,3 +1,6 @@
+<?php
+include_once "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,10 +53,24 @@
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="index.php">Domov<br></a></li>
-                <li><a href="cities.php">Kraji</a></li>
-                <li><a href="user_add.php">Registracija</a></li>
-                <li><a href="login.php">Prijava</a></li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    //prijavljen
+                ?>
+                    <li><a href="index.php">Domov<br></a></li>
+                    <li><a href="cities.php">Kraji</a></li>
+                    <li><a href="logout.php">Odjava</a></li>
+                <?php
+                }
+                else {
+                    //odjavljen
+                ?>
+                    <li><a href="user_add.php">Registracija</a></li>
+                    <li><a href="login.php">Prijava</a></li>
+                <?php
+                }
+                ?>
+
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>

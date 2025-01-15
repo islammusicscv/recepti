@@ -58,6 +58,7 @@ include_once "session.php";
                     //prijavljen
                 ?>
                     <li><a href="index.php">Domov<br></a></li>
+                    <li><a href="recipes.php">Recepti<br></a></li>
                     <li><a href="cities.php">Kraji</a></li>
                     <li><a href="categories.php">Kategorije</a></li>
                     <li><a href="logout.php">Odjava</a></li>

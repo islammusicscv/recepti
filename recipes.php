@@ -15,7 +15,13 @@ include_once 'db.php';
     $stmt->execute();
 
     while ($row = $stmt->fetch()) {
-
+        echo '<li>';
+        echo '<a href="recipe.php?id='.$row['id'].'">';
+            echo $row['recipe'].' ('.$row['category'].')';
+        echo '</a>';
+        echo ' <a href="recipe_delete.php?id='.$row['id'].'">(x)</a>';
+        echo ' <a href="recipe_edit.php?id='.$row['id'].'">(u)</a>';
+        echo '</li>';
     }
 ?>
 </ul>

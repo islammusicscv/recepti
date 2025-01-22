@@ -44,6 +44,24 @@ $row = $stmt->fetch();
         <div id="zahtevnost"><?php echo $row['level'];?></div>
     </div>
 </div>
+<hr />
+<div id="komentarji">
+    <div class="oddaja">
+        <form action="recipe_comment.php" method="post">
+            <input type="text" placeholder="Vnesi komentar recepta" name="content" class="form-control" /><br />
+            <input type="number" min="1" max="5" name="score" placeholder="Vnesi oceno recepta" class="form-control" /> <br />
+            <input type="submit" name="submit" value="Naloži" />
+        </form>
+    </div>
+    <br />
+    <div class="izpis">
+        <div class="komentar">
+            <div class="oseba">Ime priimek (22. 1. @ 17:53)</div>
+            <div class="ocena">5/5</div>
+            <div class="vsebina">TO je najboljši recept ever!!</div>
+        </div>
+    </div>
+</div>
 
 
 <?php

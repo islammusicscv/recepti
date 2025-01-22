@@ -69,7 +69,7 @@ $row = $stmt->fetch();
             echo '<div class="vsebina">'.$row['content'].'</div>';
             //opreverim ali je trenutno prijavljeni uporabnik, napisal ta komentar
             if ($_SESSION['user_id'] == $row['user_id']) {
-                echo '<div class="akcija"><a href="comment_delete.php?id=' . $row['id'] . '">X</a></div>';
+                echo '<div class="akcija"><a href="comment_delete.php?id=' . $row['id'] . '" onclick="return confirm(\'Prepričan?\')">X</a></div>';
             }
             echo '</div>';
         }

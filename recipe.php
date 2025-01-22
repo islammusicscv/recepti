@@ -47,10 +47,12 @@ $row = $stmt->fetch();
 <hr />
 <div id="komentarji">
     <div class="oddaja">
+        <h2>Oddaj komentar ali oceno</h2>
         <form action="recipe_comment.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
             <input type="text" placeholder="Vnesi komentar recepta" name="content" class="form-control" /><br />
             <input type="number" min="1" max="5" name="score" placeholder="Vnesi oceno recepta" class="form-control" /> <br />
-            <input type="submit" name="submit" value="Naloži" />
+            <input type="submit" name="submit" value="Naloži" /> <input type="reset" value="Prekliči" />
         </form>
     </div>
     <br />

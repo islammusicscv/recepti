@@ -57,11 +57,20 @@ $row = $stmt->fetch();
     </div>
     <br />
     <div class="izpis">
-        <div class="komentar">
-            <div class="oseba">Ime priimek (22. 1. @ 17:53)</div>
-            <div class="ocena">5/5</div>
-            <div class="vsebina">TO je najboljši recept ever!!</div>
-        </div>
+        <?php
+        $sql = "SELECT c.*, u.first_name, u.last_name FROM comments c INNER JOIN users u ON u.id=c.user_id WHERE recipe_id=?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        while ($row = $stmt->fetch()) {
+            echo '<div class="komentar">';
+            echo '<div class="oseba">'.$row['first_name'].' '.$row['last_name'].' ('.$row['date_add'].')</div>';
+            echo '<div class="ocena">'.$row['score'].'</div>';
+            echo '<div class="vsebina">'.$row['content'].'</div>';
+            echo '</div>';
+        }
+        ?>
+
     </div>
 </div>
 

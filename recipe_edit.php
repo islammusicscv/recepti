@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once 'session.php';
 include_once 'db.php';
 
 $id = $_GET['id'];
@@ -10,7 +10,13 @@ $stmt->execute([$id]);
 
 $row = $stmt->fetch();
 
-//print_r($row);
+if ($row['user_id'] != $_SESSION['user_id']) {
+    //preusmeritev - ne dovolim
+    header("Location: recipes.php");
+    die();
+}
+include_once 'header.php';
+
 
 ?>
 

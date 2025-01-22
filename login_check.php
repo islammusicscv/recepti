@@ -16,6 +16,7 @@ if (!empty($email) && !empty($pass)) {
         //vse je ok
         session_start();
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['admin'] = $user['admin'];
         header("Location: index.php");
     }
     else {

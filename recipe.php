@@ -24,8 +24,8 @@ $row = $stmt->fetch();
         <div class="slika"><img src="" alt="" /></div>
     </div>
     <form action="recipe_image_upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required="required" placeholder="Naloži sliko recepta" />
-        <input type="submit" value="Naloži" />
+        <input type="file" name="fileToUpload" required="required" placeholder="Naloži sliko recepta" />
+        <input type="submit" name="submit" value="Naloži" />
     </form>
     <div id="opis_recepta"><?php echo $row['description'];?></div>
     <div id="podrobnosti">

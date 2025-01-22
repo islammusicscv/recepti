@@ -23,7 +23,7 @@ if ($_FILES["fileToUpload"]["size"] > 5000000) {
 }
 
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "webp"
     && $imageFileType != "gif" ) {
     $uploadOk = 0;
 }
@@ -38,5 +38,5 @@ if ($uploadOk == 1) {
         $stmt->execute([$target_file,$recipe_id]);
     }
 }
-header("Location: recipes.php?id=".$recipe_id);
+header("Location: recipe.php?id=".$recipe_id);
 ?>

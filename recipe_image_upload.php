@@ -1,4 +1,6 @@
 <?php
+include_once 'session.php';
+$recipe_id = (int) $_POST['id'];
 $target_dir = "images/";
 $uniqe = date("YmdHis").rand();
 $target_file = $target_dir . $uniqe . basename($_FILES["fileToUpload"]["name"]);
@@ -30,6 +32,11 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 1) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         //vse je ok
+        include_once "db.php";
+        $sql = "INSERT INTO images(url, recipe_id) VALUES (?, ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$target_file,$recipe_id]);
     }
 }
+header("Location: recipes.php?id=".$recipe_id);
 ?>

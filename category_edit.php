@@ -1,4 +1,10 @@
 <?php
+include_once 'session.php';
+if (!isAdmin()) {
+    msg('Nedovoljen dostop','warning');
+    header("Location: index.php");
+    die();
+}
 include_once 'db.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM categories WHERE id=?";

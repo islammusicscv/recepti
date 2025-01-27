@@ -1,6 +1,7 @@
 <?php
 include_once 'session.php';
 if (!isAdmin()) {
+    msg('Nedovoljen dostop','warning');
     header("Location: index.php");
     die();
 }

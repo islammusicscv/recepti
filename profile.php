@@ -32,7 +32,7 @@ $user = $stmt->fetch();
         ?>
     </select> <br />
     <input type="file" name="fileToUpload" placeholder="Naloži avatar" /><br />
-    <input type="submit" value="Shrani" />
+    <input type="submit" name="submit" value="Shrani" />
 </form>
 <hr />
 <h2>Spremeni geslo</h2>

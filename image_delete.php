@@ -12,7 +12,7 @@ $recipe = $stmt->fetch();
 //preverim, ali je trenutno prijavljeni uporabnik lastnik recepta
 if ($recipe['user_id'] == $_SESSION['user_id']) {
     //vse ok
-    $sql = "DELETE FROM images WHERE id=?"; 
+    $sql = "DELETE FROM images WHERE id=?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$image_id]);
 

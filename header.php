@@ -64,7 +64,8 @@ include_once "session.php";
                     <li><a href="recipes.php">Recepti<br></a></li>
                     <li><a href="cities.php">Kraji</a></li>
                     <li><a href="categories.php">Kategorije</a></li>
-                    <li><a href="logout.php">Odjava</a></li>
+                    <li><a href="profile.php">Profil</a></li>
+                    <li><a href="logout.php" onclick="return confirm('Prepričan?')">Odjava</a></li>
                 <?php
                 }
                 else {

@@ -11,6 +11,16 @@ function isAdmin() {
     return $return;
 }
 
+/**
+ * @param $msg besedilo sporočila
+ * @param $type vrsta sporočila (success, error, warning)
+ * @return void
+ */
+function msg($msg, $type) {
+    $_SESSION['msg'] = $msg;
+    $_SESSION['type'] = $type;
+}
+
 if (!isset($_SESSION['user_id'])
     && ($_SERVER['REQUEST_URI'] != '/recepti/login.php')
     && ($_SERVER['REQUEST_URI'] != '/recepti/user_add.php')

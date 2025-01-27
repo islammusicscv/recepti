@@ -25,7 +25,12 @@ $row = $stmt->fetch();
             $stmt->execute([$id]);
 
             while ($image = $stmt->fetch()) {
-                echo '<div class="slika"><img src="'.$image['url'].'" alt="" width="100px"/></div>';
+                echo '<div class="slika">';
+                echo '<img src="'.$image['url'].'" alt="" width="100px"/>';
+                if ($row['user_id'] == $_SESSION['user_id']) {
+                    echo '<a href="image_delete.php?id='.$image['id'].'" onclick="return confirm(\'Prepričan?\')">X</a>';
+                }
+                echo '</div>';
             }
         ?>
     </div>

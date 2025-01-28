@@ -15,9 +15,9 @@ $row = $stmt->fetch();
 
 <h1>Pregled recepta</h1>
 
-<div id="recpet">
-    <div id="ime_recepta"><?php echo $row['title'];?></div>
-    <div id="kategorija"><?php echo $row['category'];?></div>
+<div id="recept">
+    <h2><?php echo $row['title'];?></h2>
+    <h3><?php echo $row['category'];?></h3>
     <div id="slike">
         <?php
             $sql = "SELECT * FROM images WHERE recipe_id = ? ORDER BY date_add";
@@ -26,7 +26,7 @@ $row = $stmt->fetch();
 
             while ($image = $stmt->fetch()) {
                 echo '<div class="slika">';
-                echo '<img src="'.$image['url'].'" alt="" width="100px"/>';
+                echo '<img src="'.$image['url'].'" alt=""/>';
                 if ($row['user_id'] == $_SESSION['user_id']) {
                     echo '<a href="image_delete.php?id='.$image['id'].'" onclick="return confirm(\'Prepričan?\')">X</a>';
                 }
@@ -34,19 +34,25 @@ $row = $stmt->fetch();
             }
         ?>
     </div>
+    <?php
+        if ($row['user_id'] == $_SESSION['user_id']) {
+    ?>
     <form action="recipe_image_upload.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $id; ?>" />
         <input type="file" name="fileToUpload" required="required" placeholder="Naloži sliko recepta" />
         <input type="submit" name="submit" value="Naloži" />
     </form>
+    <?php
+        }
+    ?>
     <div id="opis_recepta"><?php echo $row['description'];?></div>
     <div id="podrobnosti">
         <div id="postopek"><?php echo $row['proceedings'];?></div>
         <div id="sestavine"><?php echo $row['ingredients'];?></div>
     </div>
     <div id="trajanje">
-        <div id="cas"><?php echo $row['duration'];?> min</div>
-        <div id="zahtevnost"><?php echo $row['level'];?></div>
+        <div id="cas">Čas: <?php echo $row['duration'];?> min</div>
+        <div id="zahtevnost">Zahtevnost: <?php echo $row['level'];?></div>
     </div>
 </div>
 <hr />

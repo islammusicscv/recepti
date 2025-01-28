@@ -79,7 +79,6 @@ $row = $stmt->fetch();
             echo '</div>';
         }
         ?>
-
     </div>
 </div>
 

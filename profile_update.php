@@ -11,7 +11,7 @@ $city_id = (int) $_POST['city_id'];
 $sql = "UPDATE users SET first_name=?, last_name=?, city_id=? WHERE id=?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$first_name, $last_name, $city_id, $user_id]);
-msg("Posdobljeno", "succes");
+msg("Posdobljeno", "success");
 
 //posodobitev avatarja
 $target_dir = "avatars/";
